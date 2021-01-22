@@ -69,7 +69,7 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
     db=os.environ['POSTGRES_DB'],
 )
 
-c.JupyterHub.default_url = /hub/home
+c.JupyterHub.default_url = '/hub/home'
 
 # Whitlelist users and admins
 # c.Authenticator.whitelist = whitelist = set()
