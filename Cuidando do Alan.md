@@ -10,12 +10,12 @@ As urls [pc.grupoturing.com.br](https://pc.grupoturing.com.br) e [turingpc.anora
 ## Avisos Importantes
 
 - **Tenha backup de todos seus arquivos**, projetos, datasets e configurações importantes no Jupyter. O ambiente possui persistência, mas não somos especialistas e durante alguma manutenção, pode haver o reset dos ambientes. Tentaremos evitar ao máximo, mas use o Google Drive, GitHub, e seu computador pessoal para armazenar todo seu trabalho.
-- **Você não é a única pessoa usando o computador!** Lembre-se de desligar seu notebook quando parar de usar, e tente usar seus recursos de forma eficiente.
+- **Você não é a única pessoa usando o computador!** Crie ambientes para seus trabalhos quando necessário e não mexa nos arquivos dos coleguinhas. Lembre-se de desligar seu notebook quando parar de usar, e tente usar seus recursos de forma eficiente.
 - **A disponibilidade não é garantida.** O computador fica ligado em uma residência, e não há garantia de uptime, redundância ou mesmo disponibilidade de manutenção. Se você precisa executar tarefas realmente críticas, é melhor ir atrás de um ambiente em nuvem ou outra hospedagem profissional.
 
 ## Especificações
 
-|  | |
+| | |
 |---|---|
 | CPU | Intel i7-8700 @ 3.20GHz |
 | RAM | 32GiB (4x8GiB) @ 2400MHz |
@@ -35,9 +35,12 @@ Se você fizer parte da organização [GrupoTuring no GitHub](https://github.com
 Quando entrar, é só clicar em "Start My Server" e você será redirecionado para uma página do JupyterLab, onde você pode rodar notebooks usando o kernel de sua preferência, além de poder acessar um terminal e usar a linha de comando normalmente.
 Cada um dos usuários do JupyterHub possui um ambiente completamente isolado dos demais. Lembre-se de desligar o seu servidor quando não estiver usando (File > Hub Control Panel > Stop My Server), para não correr o risco de usar recursos à toa. No futuro vamos implementar gerenciamento automático desses recursos.
 
-## SSH e VNC
+## SSH e VNC  
 
 Caso a interface do Jupyter não seja suficiente para o que você precisa fazer, você pode acessar diretamente o computador através de uma conexão SSH. O comando `ssh turing@alan.grupoturing.com.br -p 2222` vai permitir que você se conecte com o usuário do Turing diretamente ao servidor pela linha de comando.
+
+Quando estiver usando diretamente o computador, lembre-se de *criar um ambiente no conda* para que seu trabalho não corra risco de interferir com outros e com o funcionamento do sitema. Também use sudo com a mão na consciência.
+
 Se quiser utilizar a interface gráfica através de VNC, o comando `ssh -L 5901:0.0.0.0:5901 -X turing@alan.grupoturing.com.br -p 2222` permite que você use um cliente VNC (como o [TightVNC](https://www.tightvnc.com/download.php)) com o endereço `localhost:5901` para acessar de forma segura usando um túnel SSH. A porta 5901 *não* ficará exposta para a internet.
 As senhas de acesso não ficarão registradas nesse documento por motivos de segurança, mas estarão disponíveis para todos.
 
