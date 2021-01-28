@@ -2,7 +2,7 @@
 
 ## Introdução
 
-O Alan é um computador do Grupo Turing, financiado pelo Amigos da Póli e que podemos usar para executar nossos códigos, treinar modelos e o que mais quisermos.
+O Alan é um computador do Grupo Turing, financiado pelo Amigos da Poli e que podemos usar para executar nossos códigos, treinar modelos e o que mais quisermos.
 Atualmente ele está na casa do [Noel](https://github.com/anor4k), ligado 24/7 e com um nobreak para evitar que desligue durante pequenas quedas de energia.
 Também possui uma conexão de 1Gbps, e IP fixo associado à url [alan.grupoturing.com.br](https://alan.grupoturing.com.br).
 As urls [pc.grupoturing.com.br](https://pc.grupoturing.com.br) e [turingpc.anorak.dev](https://turingpc.anorak.dev) também funcionam, mas não são devidamente configuradas.
