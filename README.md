@@ -53,7 +53,7 @@ As senhas de acesso não ficarão registradas nesse documento por motivos de seg
 
 - ### Estou com problema X no JupyterHub // Preciso de função X disponível para utilizar
   
-  - Todos os ambientes possuem o Anaconda disponível, o que deve fornecer as ferramentas necessárias para a grande maioria dos casos. Estamos analisando como configurar a imagem dos notebooks para permitir acesso root total aos usuários.
+  - Todos os ambientes possuem o Anaconda disponível, o que deve fornecer as ferramentas necessárias para a grande maioria dos casos. Se precisar, pode usar apt ou modificar o sistema do seu container da forma que quiser — você possui controle total usando sudo.
   - Além disso, a instalação usada para disponibilizar o JupyterHub e criar os notebooks possui uma gama muito extensa de configurações, o que nos dá muita flexibilidade e controle, mas também torna difícil algumas etapas da configuração. Você pode [abrir uma Issue no GitHub](https://github.com/GrupoTuring/jupyterhub-deploy-docker/issues) detalhando seu problema, ou [criar um Pull Request](https://github.com/GrupoTuring/jupyterhub-deploy-docker/pulls) com a solução, que tentaremos resolver e atualizar o sistema.
 
 - ### Eu li todo esse manual mas ainda preciso de ajuda, socorro!
