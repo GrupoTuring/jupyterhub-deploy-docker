@@ -31,8 +31,9 @@ c.DockerSpawner.extra_host_config = {'network_mode': network_name, 'runtime': 'n
 # it.  Most jupyter/docker-stacks *-notebook images run the Notebook server as
 # user `jovyan`, and set the notebook directory to `/home/jovyan/work`.
 # We follow the same convention.
-notebook_dir = os.environ.get('DOCKER_NOTEBOOK_DIR') or '/home/jovyan/work'
-c.DockerSpawner.notebook_dir = notebook_dir
+notebook_dir = os.environ.get('DOCKER_NOTEBOOK_DIR') or '/home/jovyan'
+c.DockerSpawner.notebook_dir = '/'
+c.DockerSpawner.default_url = notebook_dir
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
 c.DockerSpawner.volumes = {'jupyterhub-user-{username}': notebook_dir}
@@ -68,8 +69,6 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
     password=os.environ['POSTGRES_PASSWORD'],
     db=os.environ['POSTGRES_DB'],
 )
-
-c.JupyterHub.default_url = '/hub/home'
 
 # Whitlelist users and admins
 # c.Authenticator.whitelist = whitelist = set()
