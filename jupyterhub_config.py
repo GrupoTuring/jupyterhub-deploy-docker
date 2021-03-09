@@ -20,7 +20,12 @@ c.DockerSpawner.container_image = os.environ['DOCKER_NOTEBOOK_IMAGE']
 # spawning containers.  Optionally, you can override the Docker run command
 # using the DOCKER_SPAWN_CMD environment variable.
 spawn_cmd = os.environ.get('DOCKER_SPAWN_CMD', "start-singleuser.sh")
-c.DockerSpawner.extra_create_kwargs.update({'command': spawn_cmd})
+c.DockerSpawner.extra_create_kwargs.update({'command': spawn_cmd, 'user': 'root'})
+
+c.DockerSpawner.environment = {
+    'GRANT_SUDO':'1',
+    'UID': '0'
+}
 # Connect containers to this Docker network
 network_name = os.environ['DOCKER_NETWORK_NAME']
 c.DockerSpawner.use_internal_ip = True
@@ -32,8 +37,7 @@ c.DockerSpawner.extra_host_config = {'network_mode': network_name, 'runtime': 'n
 # user `jovyan`, and set the notebook directory to `/home/jovyan/work`.
 # We follow the same convention.
 notebook_dir = os.environ.get('DOCKER_NOTEBOOK_DIR') or '/home/jovyan'
-c.DockerSpawner.notebook_dir = '/'
-c.DockerSpawner.default_url = notebook_dir
+c.DockerSpawner.notebook_dir = notebook_dir
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
 c.DockerSpawner.volumes = {'jupyterhub-user-{username}': notebook_dir}
@@ -73,9 +77,8 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
 # Whitlelist users and admins
 # c.Authenticator.whitelist = whitelist = set()
 whitelist = set()
-c.Authenticator.admin_users = admin = set()
-c.Authenticator.github_organization_whitelist = {
-    'GrupoTuring'}
+c.Authenticator.admin_users = admin = set({'anor4k'})
+c.Authenticator.github_organization_whitelist = {'GrupoTuring'}
 c.JupyterHub.admin_access = True
 pwd = os.path.dirname(__file__)
 with open(os.path.join(pwd, 'userlist')) as f:
